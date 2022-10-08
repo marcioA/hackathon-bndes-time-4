@@ -1,0 +1,1004 @@
+{
+  "settings": {
+    "languages": "pt",
+    "forceNER": true,
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "pt"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "pt": {
+        "settings": {
+          "locale": "pt",
+          "trainByDomain": false,
+          "tag": "domain-manager-pt",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "ola": {
+            "intent": "SAUDACAO",
+            "domain": "default"
+          },
+          "oi": {
+            "intent": "SAUDACAO",
+            "domain": "default"
+          },
+          "bom,dia": {
+            "intent": "SAUDACAO",
+            "domain": "default"
+          },
+          "boa,tard": {
+            "intent": "SAUDACAO",
+            "domain": "default"
+          },
+          "boa,noit": {
+            "intent": "SAUDACAO",
+            "domain": "default"
+          },
+          "iai": {
+            "intent": "SAUDACAO",
+            "domain": "default"
+          },
+          "eae": {
+            "intent": "SAUDACAO",
+            "domain": "default"
+          },
+          "ae,e": {
+            "intent": "SAUDACAO",
+            "domain": "default"
+          },
+          "salv": {
+            "intent": "SAUDACAO",
+            "domain": "default"
+          },
+          "ajud,de,precis": {
+            "intent": "SAUDACAO",
+            "domain": "default"
+          },
+          "opa": {
+            "intent": "SAUDACAO",
+            "domain": "default"
+          },
+          "marci": {
+            "intent": "NOME",
+            "domain": "default"
+          },
+          "andre": {
+            "intent": "NOME",
+            "domain": "default"
+          },
+          "brend": {
+            "intent": "NOME",
+            "domain": "default"
+          },
+          "tatian": {
+            "intent": "NOME",
+            "domain": "default"
+          },
+          "henry": {
+            "intent": "NOME",
+            "domain": "default"
+          },
+          "adrian": {
+            "intent": "NOME",
+            "domain": "default"
+          },
+          "joa": {
+            "intent": "NOME",
+            "domain": "default"
+          },
+          "emprestim,faz,quer,um": {
+            "intent": "CADASTRO",
+            "domain": "default"
+          },
+          "emprestim,precis,um": {
+            "intent": "CADASTRO",
+            "domain": "default"
+          },
+          "com,emprestim,fac,par,peg,um": {
+            "intent": "CADASTRO",
+            "domain": "default"
+          },
+          "acompanh,emprestim,meu,quer": {
+            "intent": "CLIENTE",
+            "domain": "default"
+          },
+          "com,emprestim,esta,meu": {
+            "intent": "CLIENTE",
+            "domain": "default"
+          },
+          "pag,quand,que,tenh": {
+            "intent": "CLIENTE",
+            "domain": "default"
+          },
+          "do,emprestim,meu,qual,valor": {
+            "intent": "CLIENTE",
+            "domain": "default"
+          },
+          "client,ja,sou": {
+            "intent": "CLIENTE",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "SAUDACAO": "default",
+          "NOME": "default",
+          "CADASTRO": "default",
+          "CLIENTE": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "Olá",
+            "intent": "SAUDACAO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Oi",
+            "intent": "SAUDACAO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Bom dia",
+            "intent": "SAUDACAO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Boa tarde",
+            "intent": "SAUDACAO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Boa noite",
+            "intent": "SAUDACAO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Iai",
+            "intent": "SAUDACAO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Eae",
+            "intent": "SAUDACAO"
+          },
+          {
+            "domain": "default",
+            "utterance": "E ae",
+            "intent": "SAUDACAO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Salve",
+            "intent": "SAUDACAO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Preciso de ajuda",
+            "intent": "SAUDACAO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Opa",
+            "intent": "SAUDACAO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Marcio",
+            "intent": "NOME"
+          },
+          {
+            "domain": "default",
+            "utterance": "André",
+            "intent": "NOME"
+          },
+          {
+            "domain": "default",
+            "utterance": "Brenda",
+            "intent": "NOME"
+          },
+          {
+            "domain": "default",
+            "utterance": "Tatiane",
+            "intent": "NOME"
+          },
+          {
+            "domain": "default",
+            "utterance": "Henry",
+            "intent": "NOME"
+          },
+          {
+            "domain": "default",
+            "utterance": "Adriana",
+            "intent": "NOME"
+          },
+          {
+            "domain": "default",
+            "utterance": "João",
+            "intent": "NOME"
+          },
+          {
+            "domain": "default",
+            "utterance": "Quero fazer um emprestimo",
+            "intent": "CADASTRO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Preciso um emprestimo",
+            "intent": "CADASTRO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Como faço para pegar um emprestimo",
+            "intent": "CADASTRO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Quero fazer um emprestimo",
+            "intent": "CADASTRO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Quero fazer um emprestimo",
+            "intent": "CADASTRO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Quero fazer um emprestimo",
+            "intent": "CADASTRO"
+          },
+          {
+            "domain": "default",
+            "utterance": "Quero acompanhar meu emprestimo",
+            "intent": "CLIENTE"
+          },
+          {
+            "domain": "default",
+            "utterance": "Como está meu emprestimo",
+            "intent": "CLIENTE"
+          },
+          {
+            "domain": "default",
+            "utterance": "Quando tenho que pagar",
+            "intent": "CLIENTE"
+          },
+          {
+            "domain": "default",
+            "utterance": "Qual valor do meu emprestimo",
+            "intent": "CLIENTE"
+          },
+          {
+            "domain": "default",
+            "utterance": "Já sou cliente",
+            "intent": "CLIENTE"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "pt",
+              "tag": "nlu-pt",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "ola": 1,
+              "oi": 1,
+              "bom": 1,
+              "dia": 1,
+              "boa": 1,
+              "tard": 1,
+              "noit": 1,
+              "iai": 1,
+              "eae": 1,
+              "e": 1,
+              "ae": 1,
+              "salv": 1,
+              "precis": 1,
+              "de": 1,
+              "ajud": 1,
+              "opa": 1,
+              "marci": 1,
+              "andre": 1,
+              "brend": 1,
+              "tatian": 1,
+              "henry": 1,
+              "adrian": 1,
+              "joa": 1,
+              "quer": 1,
+              "faz": 1,
+              "um": 1,
+              "emprestim": 1,
+              "com": 1,
+              "fac": 1,
+              "par": 1,
+              "peg": 1,
+              "acompanh": 1,
+              "meu": 1,
+              "esta": 1,
+              "quand": 1,
+              "tenh": 1,
+              "que": 1,
+              "pag": 1,
+              "qual": 1,
+              "valor": 1,
+              "do": 1,
+              "ja": 1,
+              "sou": 1,
+              "client": 1
+            },
+            "intents": {
+              "SAUDACAO": 1,
+              "NOME": 1,
+              "CADASTRO": 1,
+              "CLIENTE": 1
+            },
+            "intentFeatures": {
+              "SAUDACAO": {
+                "ola": 1,
+                "oi": 1,
+                "bom": 1,
+                "dia": 1,
+                "boa": 1,
+                "tard": 1,
+                "noit": 1,
+                "iai": 1,
+                "eae": 1,
+                "e": 1,
+                "ae": 1,
+                "salv": 1,
+                "precis": 1,
+                "de": 1,
+                "ajud": 1,
+                "opa": 1
+              },
+              "NOME": {
+                "marci": 1,
+                "andre": 1,
+                "brend": 1,
+                "tatian": 1,
+                "henry": 1,
+                "adrian": 1,
+                "joa": 1
+              },
+              "CADASTRO": {
+                "quer": 1,
+                "faz": 1,
+                "um": 1,
+                "emprestim": 1,
+                "precis": 1,
+                "com": 1,
+                "fac": 1,
+                "par": 1,
+                "peg": 1
+              },
+              "CLIENTE": {
+                "quer": 1,
+                "acompanh": 1,
+                "meu": 1,
+                "emprestim": 1,
+                "com": 1,
+                "esta": 1,
+                "quand": 1,
+                "tenh": 1,
+                "que": 1,
+                "pag": 1,
+                "qual": 1,
+                "valor": 1,
+                "do": 1,
+                "ja": 1,
+                "sou": 1,
+                "client": 1
+              }
+            },
+            "featuresToIntent": {
+              "ola": [
+                "SAUDACAO"
+              ],
+              "oi": [
+                "SAUDACAO"
+              ],
+              "bom": [
+                "SAUDACAO"
+              ],
+              "dia": [
+                "SAUDACAO"
+              ],
+              "boa": [
+                "SAUDACAO"
+              ],
+              "tard": [
+                "SAUDACAO"
+              ],
+              "noit": [
+                "SAUDACAO"
+              ],
+              "iai": [
+                "SAUDACAO"
+              ],
+              "eae": [
+                "SAUDACAO"
+              ],
+              "e": [
+                "SAUDACAO"
+              ],
+              "ae": [
+                "SAUDACAO"
+              ],
+              "salv": [
+                "SAUDACAO"
+              ],
+              "precis": [
+                "SAUDACAO",
+                "CADASTRO"
+              ],
+              "de": [
+                "SAUDACAO"
+              ],
+              "ajud": [
+                "SAUDACAO"
+              ],
+              "opa": [
+                "SAUDACAO"
+              ],
+              "marci": [
+                "NOME"
+              ],
+              "andre": [
+                "NOME"
+              ],
+              "brend": [
+                "NOME"
+              ],
+              "tatian": [
+                "NOME"
+              ],
+              "henry": [
+                "NOME"
+              ],
+              "adrian": [
+                "NOME"
+              ],
+              "joa": [
+                "NOME"
+              ],
+              "quer": [
+                "CADASTRO",
+                "CLIENTE"
+              ],
+              "faz": [
+                "CADASTRO"
+              ],
+              "um": [
+                "CADASTRO"
+              ],
+              "emprestim": [
+                "CADASTRO",
+                "CLIENTE"
+              ],
+              "com": [
+                "CADASTRO",
+                "CLIENTE"
+              ],
+              "fac": [
+                "CADASTRO"
+              ],
+              "par": [
+                "CADASTRO"
+              ],
+              "peg": [
+                "CADASTRO"
+              ],
+              "acompanh": [
+                "CLIENTE"
+              ],
+              "meu": [
+                "CLIENTE"
+              ],
+              "esta": [
+                "CLIENTE"
+              ],
+              "quand": [
+                "CLIENTE"
+              ],
+              "tenh": [
+                "CLIENTE"
+              ],
+              "que": [
+                "CLIENTE"
+              ],
+              "pag": [
+                "CLIENTE"
+              ],
+              "qual": [
+                "CLIENTE"
+              ],
+              "valor": [
+                "CLIENTE"
+              ],
+              "do": [
+                "CLIENTE"
+              ],
+              "ja": [
+                "CLIENTE"
+              ],
+              "sou": [
+                "CLIENTE"
+              ],
+              "client": [
+                "CLIENTE"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "pt",
+                "tag": "nlu-pt",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "ola",
+                "oi",
+                "bom",
+                "dia",
+                "boa",
+                "tard",
+                "noit",
+                "iai",
+                "eae",
+                "e",
+                "ae",
+                "salv",
+                "precis",
+                "de",
+                "ajud",
+                "opa",
+                "marci",
+                "andre",
+                "brend",
+                "tatian",
+                "henry",
+                "adrian",
+                "joa",
+                "quer",
+                "faz",
+                "um",
+                "emprestim",
+                "com",
+                "fac",
+                "par",
+                "peg",
+                "acompanh",
+                "meu",
+                "esta",
+                "quand",
+                "tenh",
+                "que",
+                "pag",
+                "qual",
+                "valor",
+                "do",
+                "ja",
+                "sou",
+                "client"
+              ],
+              "intents": [
+                "SAUDACAO",
+                "NOME",
+                "CADASTRO",
+                "CLIENTE"
+              ],
+              "perceptrons": [
+                [
+                  7.8835835456848145,
+                  7.885859966278076,
+                  4.009998321533203,
+                  4.009998321533203,
+                  5.344367504119873,
+                  2.6781373023986816,
+                  2.6670987606048584,
+                  7.83953857421875,
+                  7.804643154144287,
+                  3.9950242042541504,
+                  3.9950242042541504,
+                  7.759034156799316,
+                  1.264439344406128,
+                  3.352104425430298,
+                  3.352104425430298,
+                  7.711768627166748,
+                  -6.231017589569092,
+                  -6.205406188964844,
+                  -6.178525447845459,
+                  -6.150407791137695,
+                  -6.121082305908203,
+                  -6.090584754943848,
+                  -6.058944225311279,
+                  -1.0674257278442383,
+                  -0.6930437088012695,
+                  -3.1418800354003906,
+                  -4.373480796813965,
+                  -0.7429828643798828,
+                  -0.27166762948036194,
+                  -0.27166762948036194,
+                  -0.27166762948036194,
+                  -0.32851338386535645,
+                  -1.21060049533844,
+                  -0.4107101857662201,
+                  -1.5653810501098633,
+                  -1.5653810501098633,
+                  -1.5653810501098633,
+                  -1.5653810501098633,
+                  -0.3476833999156952,
+                  -0.3476833999156952,
+                  -0.3476833999156952,
+                  -2.0857648849487305,
+                  -2.0857648849487305,
+                  -2.0857648849487305,
+                  6.265877508969914
+                ],
+                [
+                  -5.405358791351318,
+                  -5.3763227462768555,
+                  -2.7718608379364014,
+                  -2.7718608379364014,
+                  -3.7156178951263428,
+                  -1.8838149309158325,
+                  -1.829221248626709,
+                  -5.32883882522583,
+                  -5.2962141036987305,
+                  -2.748624324798584,
+                  -2.748624324798584,
+                  -5.252889633178711,
+                  -2.2088823318481445,
+                  -1.6391571760177612,
+                  -1.6391571760177612,
+                  -5.2125115394592285,
+                  8.689207077026367,
+                  8.69111442565918,
+                  8.658968925476074,
+                  8.625099182128906,
+                  8.58953857421875,
+                  8.552323341369629,
+                  8.513494491577148,
+                  -1.1044776439666748,
+                  -0.6891213059425354,
+                  -1.6087946891784668,
+                  -3.041393518447876,
+                  -0.8599590063095093,
+                  -0.2793214023113251,
+                  -0.2793214023113251,
+                  -0.2793214023113251,
+                  -0.3797531723976135,
+                  -1.401434063911438,
+                  -0.508802056312561,
+                  -1.4727885723114014,
+                  -1.4727885723114014,
+                  -1.4727885723114014,
+                  -1.4727885723114014,
+                  -0.4500385820865631,
+                  -0.4500385820865631,
+                  -0.4500385820865631,
+                  -1.9298831224441528,
+                  -1.9298831224441528,
+                  -1.9298831224441528,
+                  5.533473312476897
+                ],
+                [
+                  -0.18084664642810822,
+                  -0.17437522113323212,
+                  -0.14079084992408752,
+                  -0.14079084992408752,
+                  -0.24193817377090454,
+                  -0.11149805784225464,
+                  -0.09984889626502991,
+                  -0.16106873750686646,
+                  -0.15565048158168793,
+                  -0.11876526474952698,
+                  -0.11876526474952698,
+                  -0.14610245823860168,
+                  2.752485513687134,
+                  -1.388490080833435,
+                  -1.388490080833435,
+                  -0.11516708135604858,
+                  -0.11104056984186172,
+                  -0.11156486719846725,
+                  -0.10782381147146225,
+                  -0.10420328378677368,
+                  -0.10069961845874786,
+                  -0.09730928391218185,
+                  -0.0964965969324112,
+                  0.5857819318771362,
+                  2.2131762504577637,
+                  7.317929744720459,
+                  4.123865604400635,
+                  -0.07969048619270325,
+                  0.9602885246276855,
+                  0.9602885246276855,
+                  0.9602885246276855,
+                  -1.6206049919128418,
+                  -3.1894657611846924,
+                  -0.9932908415794373,
+                  -0.1192137598991394,
+                  -0.1192137598991394,
+                  -0.1192137598991394,
+                  -0.1192137598991394,
+                  -0.43229955434799194,
+                  -0.43229955434799194,
+                  -0.43229955434799194,
+                  -0.13283099234104156,
+                  -0.13283099234104156,
+                  -0.13283099234104156,
+                  0.047761992615264086
+                ],
+                [
+                  -0.7252191305160522,
+                  -0.7155850529670715,
+                  -0.5226748585700989,
+                  -0.5226748585700989,
+                  -0.8241385817527771,
+                  -0.37753307819366455,
+                  -0.3702044188976288,
+                  -0.65763920545578,
+                  -0.6481260657310486,
+                  -0.45250555872917175,
+                  -0.45250555872917175,
+                  -0.6183609366416931,
+                  -0.9273159503936768,
+                  -0.2620658576488495,
+                  -0.2620658576488495,
+                  -0.6021400690078735,
+                  -0.5915228724479675,
+                  -0.5805501937866211,
+                  -0.5699748992919922,
+                  -0.5602169632911682,
+                  -0.552939772605896,
+                  -0.5486485958099365,
+                  -0.5473317503929138,
+                  1.1124093532562256,
+                  -1.6987872123718262,
+                  -3.2455649375915527,
+                  3.28383207321167,
+                  1.5144227743148804,
+                  -0.8432320952415466,
+                  -0.8432320952415466,
+                  -0.8432320952415466,
+                  2.8111400604248047,
+                  6.529402256011963,
+                  2.4101157188415527,
+                  3.434351921081543,
+                  3.434351921081543,
+                  3.434351921081543,
+                  3.434351921081543,
+                  1.3080984354019165,
+                  1.3080984354019165,
+                  1.3080984354019165,
+                  4.579128742218018,
+                  4.579128742218018,
+                  4.579128742218018,
+                  0.5482392031216814
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "pt",
+        "Olá"
+      ],
+      [
+        "pt",
+        "Oi"
+      ],
+      [
+        "pt",
+        "Bom dia"
+      ],
+      [
+        "pt",
+        "Boa tarde"
+      ],
+      [
+        "pt",
+        "Boa noite"
+      ],
+      [
+        "pt",
+        "Iai"
+      ],
+      [
+        "pt",
+        "Eae"
+      ],
+      [
+        "pt",
+        "E ae"
+      ],
+      [
+        "pt",
+        "Salve"
+      ],
+      [
+        "pt",
+        "Preciso de ajuda"
+      ],
+      [
+        "pt",
+        "Opa"
+      ],
+      [
+        "pt",
+        "Marcio"
+      ],
+      [
+        "pt",
+        "André"
+      ],
+      [
+        "pt",
+        "Brenda"
+      ],
+      [
+        "pt",
+        "Tatiane"
+      ],
+      [
+        "pt",
+        "Henry"
+      ],
+      [
+        "pt",
+        "Adriana"
+      ],
+      [
+        "pt",
+        "João"
+      ],
+      [
+        "pt",
+        "Quero fazer um emprestimo"
+      ],
+      [
+        "pt",
+        "Preciso um emprestimo"
+      ],
+      [
+        "pt",
+        "Como faço para pegar um emprestimo"
+      ],
+      [
+        "pt",
+        "Quero fazer um emprestimo"
+      ],
+      [
+        "pt",
+        "Quero fazer um emprestimo"
+      ],
+      [
+        "pt",
+        "Quero fazer um emprestimo"
+      ],
+      [
+        "pt",
+        "Quero acompanhar meu emprestimo"
+      ],
+      [
+        "pt",
+        "Como está meu emprestimo"
+      ],
+      [
+        "pt",
+        "Quando tenho que pagar"
+      ],
+      [
+        "pt",
+        "Qual valor do meu emprestimo"
+      ],
+      [
+        "pt",
+        "Já sou cliente"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "pt": {
+        "SAUDACAO": [
+          {
+            "answer": "Olá, tudo bem? me chamo Pedro, primeiramente, qual seu nome ?"
+          },
+          {
+            "answer": "Olá, tudo bem? me chamo Jonas, qual seu nome ?"
+          },
+          {
+            "answer": "Olá, tudo bem? me chamo Brenda, qual seu nome ?"
+          },
+          {
+            "answer": "Olá, tudo bem? me chamo Tati, como posso te ajudar ?"
+          },
+          {
+            "answer": "Olá, tudo bem? me chamo André, como posso te ajudar hoje ?"
+          }
+        ],
+        "NOME": [
+          {
+            "answer": "Prazer, você já é nosso cliente ou deseja fazer um novo emprestimo?"
+          },
+          {
+            "answer": "Muito bom falar contigo, o que posso fazer por ti hoje?"
+          }
+        ],
+        "CADASTRO": [
+          {
+            "answer": "Qual seu nome completo ?"
+          },
+          {
+            "answer": "Agora preciso saber seu nome completo:"
+          },
+          {
+            "answer": "Vamos começar seu cadastro, qual seu nome completo?"
+          }
+        ],
+        "CLIENTE": [
+          {
+            "answer": "Para prosseguir precisamos confirmar seu CPF:"
+          },
+          {
+            "answer": "Que bom falar com você novamente, para prosseguir preciso confirmar seu CPF:"
+          },
+          {
+            "answer": "Para que não haja quebra de sigilo preciso confirmar seu CPF:"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}
