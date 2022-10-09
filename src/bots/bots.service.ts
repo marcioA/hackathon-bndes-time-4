@@ -10,30 +10,8 @@ export class BotsService {
   }
 
   waitMessageFromWhatsapp(languages, manager) {
-    const list = [
-      {
-        title: "Pasta",
-        rows: [
-          {
-            title: "Ravioli Lasagna",
-            description: "Made with layers of frozen cheese",
-          }
-        ]
-      },
-      {
-        title: "Dessert",
-        rows: [
-          {
-            title: "Baked Ricotta Cake",
-            description: "Sweets pecan baklava rolls",
-          },
-          {
-            title: "Lemon Meringue Pie",
-            description: "Pastry filled with lemonand meringue.",
-          }
-        ]
-      }
-    ];
+    const cpfsCadastrados = ['11111111111', '33333333333', '44444444444'];
+    let cpfFlag = false;
 
     create("Bot-Whatsapp")
       .then((client: Whatsapp) => {
@@ -51,6 +29,13 @@ export class BotsService {
               client.sendText(message.from, "Vamos te ajudar a criar um plano de uso para o dinheiro, de acordo com os dados informados").catch(erro => console.log(erro));
               client.sendText(message.from, "Em até 3 dias retornaremos por telefone para prosseguir com seu pedido").catch(erro => console.log(erro));
             }
+
+            if (response.intent === 'CPF') {
+              client.sendText(message.from, "A parcela do seu emprestimo vence no dia 01/11/2022 no valor de R$ 250,00").catch(erro => console.log(erro));
+              client.sendText(message.from, "Para conseguir pagar sua conta recomendamos que você guarde o valor de R$ 8,50 por dia").catch(erro => console.log(erro));
+              response.intent = 'CPF';
+            }
+
             // await client.sendListMenu(message.from, 'Title', 'subTitle', 'Description', 'menu', list)
             //   .catch((erro) => {
             //     console.error('Error when sending: ', erro); //return object error
@@ -113,10 +98,19 @@ export class BotsService {
 
     // // MOMENTO
     manager.addDocument(languages, "Nova", "NOVA");
-    manager.addDocument(languages, "Abrir", "JAEXISTE");
+    manager.addDocument(languages, "Abrir", "NOVA");
+    manager.addDocument(languages, "já existe", "JAEXISTE");
 
     // // LOCAL
-    manager.addDocument(languages, "Qual endereço você quer abrir sua sede ?", "LOCALIDADE");
+    manager.addDocument(languages, "endereço", "LOCALIDADE");
+
+    // DOCS
+    manager.addDocument(languages, "11111111111", "CPF");
+    manager.addDocument(languages, "33333333333", "CPF");
+    manager.addDocument(languages, "44444444444", "CPF");
+    manager.addDocument(languages, "111.111.111-11", "CPF");
+    manager.addDocument(languages, "333.333.333-33", "CPF");
+    manager.addDocument(languages, "444.444.444-44", "CPF");
 
     // FINALIZAÇÃO
     manager.addDocument(languages, "Tchau", "FINALIZAÇÃO");
@@ -149,13 +143,15 @@ export class BotsService {
     manager.addAnswer(languages, "JAEXISTE", "Você já pode solicitar seu emprestimo direto em um dos parceiros");
 
     // LOCALIDADE
-    manager.addAnswer(languages, "LOCALIDADE", "Legal, já estamos salvando esses dados no nosso sistema e vamos te enviar um resumo no final")
+    manager.addAnswer(languages, "LOCALIDADE", "Legal, já estamos salvando esses dados no nosso sistema e vamos te enviar um resumo no final");
 
+    // CPF
+    manager.addAnswer(languages, "CPF", "Boa, vou consultar seu contrato, só um minuto.");
 
-      (async () => {
-        await manager.train();
-        manager.save();
-      })();
+    (async () => {
+      await manager.train();
+      manager.save();
+    })();
     return true;
   }
 
