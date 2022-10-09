@@ -10,19 +10,49 @@ export class BotsService {
   }
 
   waitMessageFromWhatsapp(languages, manager) {
+    const list = [
+      {
+        title: "Pasta",
+        rows: [
+          {
+            title: "Ravioli Lasagna",
+            description: "Made with layers of frozen cheese",
+          }
+        ]
+      },
+      {
+        title: "Dessert",
+        rows: [
+          {
+            title: "Baked Ricotta Cake",
+            description: "Sweets pecan baklava rolls",
+          },
+          {
+            title: "Lemon Meringue Pie",
+            description: "Pastry filled with lemonand meringue.",
+          }
+        ]
+      }
+    ];
+
     create("Bot-Whatsapp")
       .then((client: Whatsapp) => {
         client.onMessage(async (message) => {
-          console.log(message.from);
-          if (message.isGroupMsg === false && message.from !== 'Adriana') {
-
+          if (message.isGroupMsg === false) {
             const response = await manager.process(languages, message.body.toLocaleLowerCase());
+            if (response.intent === 'None')
+              await client.sendListMenu(message.from, 'Title', 'subTitle', 'Description', 'menu', list)
+                .then((result) => {
+                  console.log('Result: ', result); //return object success
+                })
+                .catch((erro) => {
+                  console.error('Error when sending: ', erro); //return object error
+                });
 
-            console.log(response);
             client
               .sendText(message.from, response.answer)
-              .then(result => console.log(result))
               .catch(erro => console.log(erro));
+
           }
         });
       })
@@ -47,15 +77,6 @@ export class BotsService {
     manager.addDocument(languages, "Opa", "SAUDACAO");
 
     // CLIENTE NOVO
-    manager.addDocument(languages, "Marcio", "NOME");
-    manager.addDocument(languages, "André", "NOME");
-    manager.addDocument(languages, "Brenda", "NOME");
-    manager.addDocument(languages, "Tatiane", "NOME");
-    manager.addDocument(languages, "Henry", "NOME");
-    manager.addDocument(languages, "Adriana", "NOME");
-    manager.addDocument(languages, "João", "NOME");
-
-    // CLIENTE NOVO
     manager.addDocument(languages, "Quero fazer um emprestimo", "CADASTRO");
     manager.addDocument(languages, "Preciso um emprestimo", "CADASTRO");
     manager.addDocument(languages, "Como faço para pegar um emprestimo", "CADASTRO");
@@ -70,19 +91,18 @@ export class BotsService {
     manager.addDocument(languages, "Qual valor do meu emprestimo", "CLIENTE");
     manager.addDocument(languages, "Já sou cliente", "CLIENTE");
 
+    // FINALIZAÇÃO
+    manager.addDocument(languages, "Tchau", "FINALIZAÇÃO");
+    manager.addDocument(languages, "Sair", "FINALIZAÇÃO");
+    manager.addDocument(languages, "xau", "FINALIZAÇÃO");
+    manager.addDocument(languages, "até mais", "FINALIZAÇÃO");
+
     // RESPOSTAS
 
     // RESPOSTAS PARA SAUDACAO
-    manager.addAnswer(languages, "SAUDACAO", "Olá, tudo bem? me chamo Pedro, primeiramente, qual seu nome ?");
-    manager.addAnswer(languages, "SAUDACAO", "Olá, tudo bem? me chamo Jonas, qual seu nome ?");
-    manager.addAnswer(languages, "SAUDACAO", "Olá, tudo bem? me chamo Brenda, qual seu nome ?");
-    manager.addAnswer(languages, "SAUDACAO", "Olá, tudo bem? me chamo Tati, como posso te ajudar ?");
-    manager.addAnswer(languages, "SAUDACAO", "Olá, tudo bem? me chamo André, como posso te ajudar hoje ?");
-
-
-    // RESPOSTAS PARA NOME
-    manager.addAnswer(languages, "NOME", "Prazer, você já é nosso cliente ou deseja fazer um novo emprestimo?");
-    manager.addAnswer(languages, "NOME", "Muito bom falar contigo, o que posso fazer por ti hoje?");
+    manager.addAnswer(languages, "SAUDACAO", "Olá, tudo bem? me chamo Bob, seu assistente virtual. Primeiramente, qual seu nome ?");
+    manager.addAnswer(languages, "SAUDACAO", "Olá, tudo bem? me chamo Bob,sou um assistente virtual. Como posso te ajudar ?");
+    manager.addAnswer(languages, "SAUDACAO", "Olá, tudo bem? me chamo Bob, como posso te ajudar hoje ?");
 
     // RESPOSTA PARA CADASTRO 
     manager.addAnswer(languages, "CADASTRO", "Qual seu nome completo ?");
@@ -93,8 +113,6 @@ export class BotsService {
     manager.addAnswer(languages, "CLIENTE", "Para prosseguir precisamos confirmar seu CPF:");
     manager.addAnswer(languages, "CLIENTE", "Que bom falar com você novamente, para prosseguir preciso confirmar seu CPF:");
     manager.addAnswer(languages, "CLIENTE", "Para que não haja quebra de sigilo preciso confirmar seu CPF:");
-
-
 
     (async () => {
       await manager.train();
