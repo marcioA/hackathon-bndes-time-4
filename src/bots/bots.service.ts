@@ -41,13 +41,20 @@ export class BotsService {
           if (message.isGroupMsg === false) {
             const response = await manager.process(languages, message.body.toLocaleLowerCase());
             if (response.intent === 'None')
-              await client.sendListMenu(message.from, 'Title', 'subTitle', 'Description', 'menu', list)
-                .then((result) => {
-                  console.log('Result: ', result); //return object success
-                })
-                .catch((erro) => {
-                  console.error('Error when sending: ', erro); //return object error
-                });
+              client.sendText(message.from, "Desculpe, não entendi, tenta enviar de outra forma ou com poucas palavras")
+
+            if (response.intent === 'JAEXISTE')
+              client.sendContactVcard(message.from, '5511953974323', 'Consultora Brenda')
+                .catch(erro => console.log(erro));
+
+            if (response.intent === 'LOCALIDADE') {
+              client.sendText(message.from, "Vamos te ajudar a criar um plano de uso para o dinheiro, de acordo com os dados informados").catch(erro => console.log(erro));
+              client.sendText(message.from, "Em até 3 dias retornaremos por telefone para prosseguir com seu pedido").catch(erro => console.log(erro));
+            }
+            // await client.sendListMenu(message.from, 'Title', 'subTitle', 'Description', 'menu', list)
+            //   .catch((erro) => {
+            //     console.error('Error when sending: ', erro); //return object error
+            //   });
 
             client
               .sendText(message.from, response.answer)
@@ -91,6 +98,26 @@ export class BotsService {
     manager.addDocument(languages, "Qual valor do meu emprestimo", "CLIENTE");
     manager.addDocument(languages, "Já sou cliente", "CLIENTE");
 
+    // // NOME
+    manager.addDocument(languages, "Marcio", "NOME");
+    manager.addDocument(languages, "Henry", "NOME");
+    manager.addDocument(languages, "Brenda", "NOME");
+    manager.addDocument(languages, "Tatiane", "NOME");
+    manager.addDocument(languages, "Haziel", "NOME");
+    manager.addDocument(languages, "André", "NOME");
+    manager.addDocument(languages, "Adriana", "NOME");
+    manager.addDocument(languages, "Georgia", "NOME");
+    manager.addDocument(languages, "Luiz", "NOME");
+    manager.addDocument(languages, "Felipe", "NOME");
+    manager.addDocument(languages, "Murilo", "NOME");
+
+    // // MOMENTO
+    manager.addDocument(languages, "Nova", "NOVA");
+    manager.addDocument(languages, "Abrir", "JAEXISTE");
+
+    // // LOCAL
+    manager.addDocument(languages, "Qual endereço você quer abrir sua sede ?", "LOCALIDADE");
+
     // FINALIZAÇÃO
     manager.addDocument(languages, "Tchau", "FINALIZAÇÃO");
     manager.addDocument(languages, "Sair", "FINALIZAÇÃO");
@@ -100,7 +127,7 @@ export class BotsService {
     // RESPOSTAS
 
     // RESPOSTAS PARA SAUDACAO
-    manager.addAnswer(languages, "SAUDACAO", "Olá, tudo bem? me chamo Bob, seu assistente virtual. Primeiramente, qual seu nome ?");
+    manager.addAnswer(languages, "SAUDACAO", "Olá, tudo bem? me chamo Bob, seu assistente virtual. como posso te ajudar ?");
     manager.addAnswer(languages, "SAUDACAO", "Olá, tudo bem? me chamo Bob,sou um assistente virtual. Como posso te ajudar ?");
     manager.addAnswer(languages, "SAUDACAO", "Olá, tudo bem? me chamo Bob, como posso te ajudar hoje ?");
 
@@ -114,10 +141,21 @@ export class BotsService {
     manager.addAnswer(languages, "CLIENTE", "Que bom falar com você novamente, para prosseguir preciso confirmar seu CPF:");
     manager.addAnswer(languages, "CLIENTE", "Para que não haja quebra de sigilo preciso confirmar seu CPF:");
 
-    (async () => {
-      await manager.train();
-      manager.save();
-    })();
+    // RESPOSTA NOME
+    manager.addAnswer(languages, "NOME", "Sua empresa já existe ou você abrir uma ?");
+
+    // RESPOSTA MOMENTO
+    manager.addAnswer(languages, "NOVA", "O que você quer abrir ?");
+    manager.addAnswer(languages, "JAEXISTE", "Você já pode solicitar seu emprestimo direto em um dos parceiros");
+
+    // LOCALIDADE
+    manager.addAnswer(languages, "LOCALIDADE", "Legal, já estamos salvando esses dados no nosso sistema e vamos te enviar um resumo no final")
+
+
+      (async () => {
+        await manager.train();
+        manager.save();
+      })();
     return true;
   }
 
